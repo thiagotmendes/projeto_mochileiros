@@ -26,11 +26,36 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
+          @if (Auth::guest())
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"> Pequenos Mochileiros </h3>
+              </div>
+              <div class="panel-body">
+                <ul>
+                  <li> <a href="http://pequenosmochileiros.fourmedia.com.br/o-mochileiro"> O Mochileiro </a> </li>
+                  <li> <a href="http://pequenosmochileiros.fourmedia.com.br/trocas-e-devolucoes"> Trocas e Devoluções </a> </li>
+                  <li> <a href="http://pequenosmochileiros.fourmedia.com.br/politica-de-privacidade"> Política de privacidade </a> </li>
+                  <li> <a href="http://pequenosmochileiros.fourmedia.com.br/blog"> Blog </a> </li>
+                  <li> <a href="http://pequenosmochileiros.fourmedia.com.br/contato"> Contato </a> </li>
+                </ul>
+              </div>
+            </div>
+          @else
+            @include('include.menuJogos')
 
-          @include('include.menuJogos')
-
-          @include('include.menuUsuario')
-
+            @include('include.menuUsuario')
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"> Jogar </h3>
+              </div>
+              <div class="panel-body">
+                <ul>
+                  <li> <a href="/jogos/jogo1"> Jogo da memoria 1 </a> </li>
+                </ul>
+              </div>
+            </div>
+          @endif
         </div>
         <div class="col-md-9">
             @yield('content')

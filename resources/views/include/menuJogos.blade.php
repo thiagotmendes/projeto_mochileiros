@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
     <ul>
-      <li> <a href=""> Adicionar Jogo </a> </li>
+      <li> <a href="/addjogo"> Adicionar Jogo </a> </li>
       <li> <a href=""> Excluir </a> </li>
     </ul>
   </div>

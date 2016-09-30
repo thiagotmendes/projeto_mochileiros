@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
     <ul>
-      <li> <a href="#"> Adicionar Usuário </a> </li>
+      <li> <a href="/addUser/formuser"> Adicionar Usuário </a> </li>
       <li> <a href="#"> Excluir Usuário </a> </li>
       <li> <a href="#"> Editar Usuário </a> </li>
     </ul>

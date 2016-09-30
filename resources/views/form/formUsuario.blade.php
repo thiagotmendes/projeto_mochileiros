@@ -6,7 +6,12 @@
       <h3 class="panel-title"> Adicionar Usuário </h3>
     </div>
     <div class="panel-body">
-      <form class="" action="index.html" method="post">
+      @if (isset($_GET['msg']) and $_GET['msg'] == "ok")
+        <div class="alert alert-success">
+          Usuário adicionado com sucesso!
+        </div>
+      @endif
+      <form class="" action="adicionar" method="post">
         <div class="row">
           <div class="col-md-5">
             <div class="form-group">
@@ -24,13 +29,13 @@
           <div class="col-md-3">
             <div class="form-group">
               <label for="telefone">Senha</label>
-              <input type="text" name="password" class="form-control" id="" placeholder="">
+              <input type="password" name="password" class="form-control" id="" placeholder="">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4 col-md-offset-4">
-            <button type="button" name="button" class="btn btn-block btn-primary"> SALVAR </button>
+            <button type="submit" name="button" class="btn btn-block btn-primary"> SALVAR </button>
           </div>
         </div>
       </form>
