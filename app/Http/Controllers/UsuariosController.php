@@ -40,5 +40,11 @@ class UsuariosController extends Controller
     }
   }
 
+  public function gridUsuario()
+  {
+    $queryUsers = DB::table('users')->get();
+
+    return view('grid.gridUsuario', ['gridUsers' => $queryUsers]);
+  }
 
 }

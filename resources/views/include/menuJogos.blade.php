@@ -1,11 +1,12 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title"> Jogos </h3>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"> Jogos </h3>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <li> <a href="/addpais"> Adicionar Pais </a> </li>
+        <li> <a href="/addjogo"> Adicionar Jogo </a> </li>
+        <li> <a href="/addjogo/listaJogos"> Lista jogos </a> </li>
+      </ul>
+    </div>
   </div>
-  <div class="panel-body">
-    <ul>
-      <li> <a href="/addjogo"> Adicionar Jogo </a> </li>
-      <li> <a href=""> Excluir </a> </li>
-    </ul>
-  </div>
-</div>

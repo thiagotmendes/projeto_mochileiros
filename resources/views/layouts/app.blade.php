@@ -10,8 +10,11 @@
       <!-- Bootstrap -->
       <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
       <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+      <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.css')}}">
     @show
-
+    @php
+      $teste = Auth::user()->tipoUsuario;
+    @endphp
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -42,19 +45,10 @@
               </div>
             </div>
           @else
-            @include('include.menuJogos')
-
-            @include('include.menuUsuario')
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title"> Jogar </h3>
-              </div>
-              <div class="panel-body">
-                <ul>
-                  <li> <a href="/jogos/jogo1"> Jogo da memoria 1 </a> </li>
-                </ul>
-              </div>
-            </div>
+            @if ($teste == 0)
+              @include('include.menuJogos')
+              @include('include.menuUsuario')
+            @endif
           @endif
         </div>
         <div class="col-md-9">
@@ -70,6 +64,8 @@
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="{{asset('js/tinymce/js/tinymce/tinymce.min.js')}}"></script>
       <script src="{{asset('js/bootstrap.js')}}"></script>
+      <script src="{{asset('js/jquery.dataTables.js')}}"></script>
+      <script src="{{asset('js/dataTables.bootstrap.js')}}"></script>
       <script src="{{asset('js/funcoes.js')}}"></script>
     @show
     </body>

@@ -6,18 +6,30 @@
       <h3 class="panel-title"> Adicionar Jogo </h3>
     </div>
     <div class="panel-body">
-      <form class="" action="index.html" method="post">
+      <form class="" action="/addjogo/adicionar" method="post">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="form-group">
               <label for="titulo"> Titulo do Jogo </label>
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" name="nome" class="form-control" id="" placeholder="">
+              {{ csrf_field() }}
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="form-group">
               <label for="">Link do jogo</label>
               <input type="text" name="link" class="form-control" id="" placeholder="">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="">Pais</label>
+              <select class="form-control" name="paisjogo">
+                <option value=""></option>
+                @foreach ( $buscaPais as $pais )
+                  <option value="{{ $pais->idpais }}"> {{ $pais->nome }} </option>
+                @endforeach
+              </select>
             </div>
           </div>
         </div>
@@ -29,7 +41,7 @@
 
         <div class="row">
           <div class="col-md-4 col-md-offset-4">
-            <button type="button" name="button" class="btn btn-primary btn-block"> Salvar </button>
+            <button type="submit" name="button" class="btn btn-primary btn-block"> Salvar </button>
           </div>
         </div>
 
