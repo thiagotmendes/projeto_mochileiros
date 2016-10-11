@@ -1,4 +1,4 @@
-@extends('layouts.sistema')
+@extends('layouts.app')
 
 @section('content')
     <div class="panel panel-default">
@@ -11,7 +11,7 @@
           @if ($teste == 0)
             Esta é a área do mochileiro.
           @else
-            teste
+            @include('form.formChave')
           @endif
         </div>
     </div>

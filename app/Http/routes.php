@@ -10,6 +10,9 @@ Route::get('/register', function(){
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::group(['prefix' => '/home'], function(){
+  Route::post('addchave', 'HomeController@insereChave');
+});
 
 // GRUPO DE ROTA PARA USUARIOS
 Route::group(['prefix' => 'addUser'], function () {

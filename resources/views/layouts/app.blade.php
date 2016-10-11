@@ -12,9 +12,11 @@
       <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
       <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.css')}}">
     @show
-    @php
-      $teste = Auth::user()->tipoUsuario;
-    @endphp
+    @if (!Auth::guest())
+      @php
+        $teste = Auth::user()->tipoUsuario;
+      @endphp
+    @endif
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -48,6 +50,21 @@
             @if ($teste == 0)
               @include('include.menuJogos')
               @include('include.menuUsuario')
+            @else
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title"> Paises </h3>
+                </div>
+                <div class="panel-body">
+                  <ul>
+                    @foreach ($listaPais as $pais)
+                      <li>
+                        <a href="#"> {{ $pais->nome }} </a>
+                      </li>
+                    @endforeach
+                  </ul>
+                </div>
+              </div>
             @endif
           @endif
         </div>
