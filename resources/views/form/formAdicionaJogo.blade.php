@@ -6,7 +6,7 @@
       <h3 class="panel-title"> Adicionar Jogo </h3>
     </div>
     <div class="panel-body">
-      <form class="" action="/addjogo/adicionar" method="post">
+      <form class="" action="/addjogo/adicionar" method="post" enctype="multipart/form-data">
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
@@ -30,6 +30,15 @@
                   <option value="{{ $pais->idpais }}"> {{ $pais->nome }} </option>
                 @endforeach
               </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="">Imagem</label>
+              <input type="file" name="imgJogo" id="" placeholder="">
             </div>
           </div>
         </div>

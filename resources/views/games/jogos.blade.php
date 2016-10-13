@@ -1,5 +1,6 @@
-@extends('layouts.app')
-
+@extends('layouts.sistema')
 @section('content')
-  <iframe src="http://4media.com.br/arquivos/pequenos-mochileiros/jogo1/" width="100%" height="600"></iframe>
+  @foreach ($idLinkJogo as $linkJogo)
+    <iframe src="{{$linkJogo->link}}" width="100%" height="600"></iframe>
+  @endforeach
 @endsection

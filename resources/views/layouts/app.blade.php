@@ -57,11 +57,13 @@
                 </div>
                 <div class="panel-body">
                   <ul>
-                    @foreach ($listaPais as $pais)
-                      <li>
-                        <a href="#"> {{ $pais->nome }} </a>
-                      </li>
-                    @endforeach
+                    @if (isset($listaPais))
+                      @foreach ($listaPais as $pais)
+                        <li>
+                          <a href="/home/{{ $pais->idpais }}/{{ $pais->nome }}"> {{ $pais->nome }} </a>
+                        </li>
+                      @endforeach
+                    @endif
                   </ul>
                 </div>
               </div>

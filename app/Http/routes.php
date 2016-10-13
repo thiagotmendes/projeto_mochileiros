@@ -12,20 +12,18 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 Route::group(['prefix' => '/home'], function(){
   Route::post('addchave', 'HomeController@insereChave');
+  Route::get('/{id}/{pais?}', 'HomeController@listaJogosPaises');
+
 });
+
+// ROTA DOS JOGOS
+Route::get('/executajogo/{idJogos}', 'JogosController@ExecutaJogo');
 
 // GRUPO DE ROTA PARA USUARIOS
 Route::group(['prefix' => 'addUser'], function () {
   Route::get('formuser','UsuariosController@index');
   Route::get('listaUsuarios','UsuariosController@gridUsuario');
   Route::post('adicionar','UsuariosController@createUser');
-});
-
-// GRUPO DE ROTAS PARA JOGOS
-Route::group(['prefix' => 'jogos'], function () {
-  Route::get('jogo1', function(){
-    return view('games.jogos');
-  });
 });
 
 // GRUPO DE ROTAS PARA CONTROLE DE JOGOS

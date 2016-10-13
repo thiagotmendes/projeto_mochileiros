@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddVotesToUsersTable extends Migration
+class AddCampoJogos1 extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class AddVotesToUsersTable extends Migration
      */
     public function up()
     {
-      Schema::table('users', function (Blueprint $table) {
-        $table->integer('tipoUsuario');
-      });
+        Schema::table('jogos', function (Blueprint $table) {
+          $table->string('imgJogo');
+        });
     }
 
     /**
@@ -24,8 +24,8 @@ class AddVotesToUsersTable extends Migration
      */
     public function down()
     {
-      Schema::table('users', function (Blueprint $table) {
-        $table->dropColumn('tipoUsuario');
-      });
+        Schema::table('jogos', function (Blueprint $table) {
+          $table->dropColumn('imgJogo');
+        });
     }
 }

@@ -31,6 +31,8 @@ class UsuariosController extends Controller
           'name'        => $nome,
           'email'       => $email,
           'password'    => $password,
+          'estatus'     => '1',
+          'tipoUsuario' => '1',
           'created_at'  =>  DB::raw('now()')
         ]
       );
@@ -43,7 +45,6 @@ class UsuariosController extends Controller
   public function gridUsuario()
   {
     $queryUsers = DB::table('users')->get();
-
     return view('grid.gridUsuario', ['gridUsers' => $queryUsers]);
   }
 

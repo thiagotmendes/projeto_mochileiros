@@ -8,10 +8,22 @@
           @php
             $teste = Auth::user()->tipoUsuario;
           @endphp
-          @if ($teste == 0)
+          @if (Auth::user()->tipoUsuario == 0)
             Esta é a área do mochileiro.
           @else
-            @include('form.formChave')
+            @if (isset($listaJogosHome))
+              <div class="row">
+                @foreach ($listaJogosHome as $jogosDes )
+                  <div class="col-md-3">
+                    <a href="/executajogo/{{$jogosDes->idjogos}}">
+                      <img src="{{$jogosDes->imgJogo}}" alt="" class="img-responsive" />
+                    </a>
+                  </div>
+                @endforeach
+              </div>
+            @else
+              @include('form.formChave')
+            @endif
           @endif
         </div>
     </div>
