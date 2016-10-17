@@ -13,7 +13,6 @@ Route::get('/home', 'HomeController@index');
 Route::group(['prefix' => '/home'], function(){
   Route::post('addchave', 'HomeController@insereChave');
   Route::get('/{id}/{pais?}', 'HomeController@listaJogosPaises');
-
 });
 
 // ROTA DOS JOGOS
@@ -36,5 +35,8 @@ Route::group(['prefix' => 'addjogo'], function(){
 // GRUPO ROTAS PARA PAIS
 Route::get('addpais', 'PaisController@index');
 Route::group(['prefix' => 'addpais'], function(){
+  Route::get('listaPaises/{idpais}', 'PaisController@updatePais');
   Route::post('adicionar', 'PaisController@createPais');
+  Route::get('listaPaises', 'PaisController@listaPaises');
+  Route::get('excluir/{idpais}', 'PaisController@excluirPais');
 });

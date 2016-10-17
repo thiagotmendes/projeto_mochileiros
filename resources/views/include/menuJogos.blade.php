@@ -5,6 +5,7 @@
     <div class="panel-body">
       <ul>
         <li> <a href="/addpais"> Adicionar Pais </a> </li>
+        <li> <a href="/addpais/listaPaises"> Lista Pais </a> </li>
         <li> <a href="/addjogo"> Adicionar Jogo </a> </li>
         <li> <a href="/addjogo/listaJogos"> Lista jogos </a> </li>
       </ul>

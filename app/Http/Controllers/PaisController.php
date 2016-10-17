@@ -21,23 +21,60 @@ class PaisController extends Controller
   // cria o pais
   public function createPais(Request $addPais)
   {
-    $nomePais = $addPais->pais;
-    $chavePais = $addPais->chave;
-    $descricaoPais = $addPais->descricao;
+    $idPais         = $addPais->idpais;
+    $nomePais       = $addPais->pais;
+    $chavePais      = $addPais->chave;
+    $descricaoPais  = $addPais->descricao;
 
     if ($addPais->_token) {
-      DB::table('pais')->insert(
-        [
-          'nome'        => $nomePais,
-          'chave'       => $chavePais,
-          'descricao'    => $descricaoPais,
-          'created_at'  =>  DB::raw('now()')
-        ]
-      );
-      return redirect('addpais/?msg=ok');
+      if(empty($idPais)){
+        DB::table('pais')->insert(
+          [
+            'nome'        => $nomePais,
+            'chave'       => $chavePais,
+            'descricao'    => $descricaoPais,
+            'created_at'  =>  DB::raw('now()')
+          ]
+        );
+        return redirect('addpais/?msg=ok');
+      } else{
+        DB::table('pais')
+        ->where('idpais', $idPais)
+        ->update(
+          [
+            'nome'        => $nomePais,
+            'chave'       => $chavePais,
+            'descricao'    => $descricaoPais,
+            'created_at'  =>  DB::raw('now()')
+          ]
+        );
+        return redirect('addpais/listaPaises/'.$idPais.'?msg=update_ok');
+      }
     } else {
       return redirect('addpais/?msg=error');
     }
+  }
+
+  public function updatePais($idpais)
+  {
+    $queryPaisUpdate = DB::table('pais')
+                        ->where('idpais', '=' , $idpais)
+                        ->get();
+    return view('form.formPais', ['idpais' => $queryPaisUpdate]);
+  }
+
+  public function excluirPais($idpais)
+  {
+    if(!empty($idpais) and is_numeric($idpais)){
+      DB::table('pais')->where('idpais', '=', $idpais)->delete();
+      return redirect('addpais/listaPaises?msg=exc');
+    }
+  }
+
+  public function listaPaises()
+  {
+    $queryPais = DB::table('pais')->get();
+    return view('grid.gridPaises',['listaPaises' => $queryPais]);
   }
 
 
