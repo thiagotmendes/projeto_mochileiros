@@ -18,6 +18,7 @@ Route::group(['prefix' => 'addUser'], function () {
   Route::get('formuser','UsuariosController@index');
   Route::get('listaUsuarios','UsuariosController@gridUsuario');
   Route::post('adicionar','UsuariosController@createUser');
+  Route::get('addUser/formuser/{id}', 'UsuariosController@update')
 });
 // GRUPO DE ROTAS PARA CONTROLE DE JOGOS
 Route::get('/addjogo', 'JogosController@index');

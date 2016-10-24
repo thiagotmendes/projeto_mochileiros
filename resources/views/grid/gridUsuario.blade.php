@@ -26,7 +26,7 @@
 
           </td>
           <td align="center">
-            <button type="button" name="button" class="btn btn-info" title="Editar"> <i class="fa fa-pencil" aria-hidden="true"></i> </button>
+            <a href="addUser/formuser/{{ $listaUsers->id }}" class="btn btn-info" title="Editar"> <i class="fa fa-pencil" aria-hidden="true"></i> </button>
           </td>
           <td align="center">
             <button type="button" name="button" class="btn btn-danger"> <i class="fa fa-trash" aria-hidden="true"></i> </button>

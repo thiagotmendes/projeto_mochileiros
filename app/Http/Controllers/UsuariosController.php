@@ -48,4 +48,12 @@ class UsuariosController extends Controller
     return view('grid.gridUsuario', ['gridUsers' => $queryUsers]);
   }
 
+  public function updateUsuario($id)
+  {
+    $queryUsers = DB::table('users')
+                ->where('id','=',$id)
+                ->get();
+    return view('grid.gridUsuario', ['gridUsers' => $queryUsers]);
+  }
+
 }
