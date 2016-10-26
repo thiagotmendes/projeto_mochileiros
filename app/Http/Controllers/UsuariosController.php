@@ -24,21 +24,31 @@ class UsuariosController extends Controller
     $nome     = $addUser->nome;
     $email    = $addUser->email;
     $password = bcrypt($addUser->password);
+    $idUser   = $addUser->idusuario;
 
-    if ($addUser->_token) {
-      DB::table('users')->insert(
-        [
-          'name'        => $nome,
-          'email'       => $email,
-          'password'    => $password,
-          'estatus'     => '1',
-          'tipoUsuario' => '1',
-          'created_at'  =>  DB::raw('now()')
-        ]
-      );
-      return redirect('addUser/formuser/?msg=ok');
+    if (!empty($idUser)) {
+      if ($addUser->_token) {
+        DB::table('users')
+            ->where('id', $idUser)
+            ->update(['name' => $nome, 'email' => $email, 'password' => $password]);
+      }
+      return redirect('addUser/listaUsuarios?msg=okupdate');
     } else {
-      return redirect('addUser/formuser/?msg=error');
+      if ($addUser->_token) {
+        DB::table('users')->insert(
+          [
+            'name'        => $nome,
+            'email'       => $email,
+            'password'    => $password,
+            'estatus'     => '1',
+            'tipoUsuario' => '1',
+            'created_at'  =>  DB::raw('now()')
+          ]
+        );
+        return redirect('addUser/formuser/?msg=ok');
+      } else {
+        return redirect('addUser/formuser/?msg=error');
+      }
     }
   }
 
@@ -53,7 +63,7 @@ class UsuariosController extends Controller
     $queryUsers = DB::table('users')
                 ->where('id','=',$id)
                 ->get();
-    return view('grid.gridUsuario', ['gridUsers' => $queryUsers]);
+    return view('form.formUsuario', ['formUpdate' => $queryUsers]);
   }
 
 }

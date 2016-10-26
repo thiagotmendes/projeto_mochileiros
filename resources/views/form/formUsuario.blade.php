@@ -11,25 +11,30 @@
           Usuário adicionado com sucesso!
         </div>
       @endif
-      <form class="" action="adicionar" method="post">
+      <form class="" action="/addUser/adicionar" method="post">
         <div class="row">
           <div class="col-md-5">
             <div class="form-group">
               <label for="nome">Nome</label>
-              <input type="text" name="nome" class="form-control" id="" placeholder="">
+              <input type="text" name="nome" class="form-control" id="" placeholder=""
+              value="@if(isset($formUpdate[0]) and $formUpdate[0]){{ $formUpdate[0]->name }}@endif">
+              <input type="hidden" name="idusuario"
+              value="@if(isset($formUpdate[0]) and $formUpdate[0]){{$formUpdate[0]->id}}@endif">
               {{ csrf_field() }}
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="text" name="email" class="form-control" id="" placeholder="">
+              <input type="text" name="email" class="form-control" id="" placeholder=""
+              value="@if(isset($formUpdate[0]) and $formUpdate[0]){{ $formUpdate[0]->email }}@endif">
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
               <label for="telefone">Senha</label>
-              <input type="password" name="password" class="form-control" id="" placeholder="">
+              <input type="password" name="password" class="form-control" id="" placeholder=""
+              value="@if(isset($formUpdate[0]) and $formUpdate[0]){{ $formUpdate[0]->password }}@endif">
             </div>
           </div>
         </div>
