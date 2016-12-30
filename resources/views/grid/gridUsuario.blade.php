@@ -2,7 +2,7 @@
 
 @section('content')
   @if (isset($_GET['msg']) and $_GET['msg'] == 'okupdate' )
-    <div class="alert alert-success"> Dados de usuário  atualizados com sucesso! </div>
+    <div class="alert alert-success"> Dados de usuário   atualizados com sucesso! </div>
   @endif
   <table id="gridView" class="table table-bordered table-hover">
     <thead>
