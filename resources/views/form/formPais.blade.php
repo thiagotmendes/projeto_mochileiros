@@ -20,7 +20,8 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="nomePais">Pais</label>
-              <input type="text" name="pais" class="form-control" id="" placeholder="" value="@if(isset($idpais)) {{$idpais[0]->nome}} @endif">
+              <input type="text" name="pais" class="form-control" id="" placeholder=""
+              value="@if(isset($idpais)) {{$idpais[0]->nome}} @endif">
               @if(isset($idpais))
                 <input type="hidden" name="idpais" value="@if(isset($idpais)){{$idpais[0]->idpais}}@endif">
               @endif
@@ -33,7 +34,7 @@
               <label for="chave">Chave</label>
               <input type="text" name="chave" class="form-control" id="" placeholder=""
               value="@if(isset($idpais)){{$idpais[0]->chave}}@endif"
-                @if(isset($idpais)) disabled @endif />
+                />
             </div>
           </div>
 
