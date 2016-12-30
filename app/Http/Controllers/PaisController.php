@@ -21,10 +21,10 @@ class PaisController extends Controller
   // cria o pais
   public function createPais(Request $addPais)
   {
-    $idPais         = $addPais->idpais;
-    $nomePais       = $addPais->pais;
-    $chavePais      = $addPais->chave;
-    $descricaoPais  = $addPais->descricao;
+    $idPais         = trim($addPais->idpais);
+    $nomePais       = trim($addPais->pais);
+    $chavePais      = trim($addPais->chave);
+    $descricaoPais  = trim($addPais->descricao);
 
     if ($addPais->_token) {
       if(empty($idPais)){
@@ -43,7 +43,7 @@ class PaisController extends Controller
         ->update(
           [
             'nome'        => $nomePais,
-            'chave'       => $chavePais,
+            //'chave'       => $chavePais,
             'descricao'    => $descricaoPais,
             'created_at'  =>  DB::raw('now()')
           ]

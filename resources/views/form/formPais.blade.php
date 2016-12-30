@@ -34,7 +34,7 @@
               <label for="chave">Chave</label>
               <input type="text" name="chave" class="form-control" id="" placeholder=""
               value="@if(isset($idpais)){{$idpais[0]->chave}}@endif"
-                />
+                @if(isset($idpais)) disabled @endif />
             </div>
           </div>
 
