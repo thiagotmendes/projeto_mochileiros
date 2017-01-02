@@ -3,7 +3,7 @@
 @section('content')
   @if (isset($_GET['msg']) and $_GET['msg'] == "exc")
     <div class="alert alert-danger">
-      Pais excluido com sucesso.
+      País excluido com sucesso.
     </div>
   @endif
   <table id="gridView" class="table table-bordered table-hover">
@@ -44,7 +44,7 @@
 @endsection
 <script type="text/javascript">
   function confirmaDel(id) {
-    var confirma = confirm("Deseja remover esse Pais?");
+    var confirma = confirm("Deseja remover esse País?");
     if (confirma == true) {
       window.location.href = "{{url('addpais/excluir')}}/"+id;
     }

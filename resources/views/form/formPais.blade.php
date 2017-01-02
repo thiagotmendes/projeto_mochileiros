@@ -3,12 +3,12 @@
 @section('content')
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Adicionar Pais</h3>
+      <h3 class="panel-title">Adicionar País</h3>
     </div>
     <div class="panel-body">
       @if (isset($_GET['msg']) and $_GET['msg'] == "ok")
         <div class="alert alert-success">
-          Pais adicionado com sucesso!
+          País adicionado com sucesso!
         </div>
       @elseif (isset($_GET['msg']) and $_GET['msg'] == "update_ok")
         <div class="alert alert-success">

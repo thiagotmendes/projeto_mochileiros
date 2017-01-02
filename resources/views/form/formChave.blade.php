@@ -1,5 +1,5 @@
   @if (isset($_GET['msg']) && $_GET['msg'] == "ok")
-    <div class="alert alert-success"> Pais desbloqueado. </div>
+    <div class="alert alert-success"> País desbloqueado. </div>
   @elseif (isset($_GET['msg']) && $_GET['msg'] == "erro")
     <div class="alert alert-danger"> Chave inserida não existe! insira a chave corretamente, caso o erro persista entre em contato. </div>
   @endif

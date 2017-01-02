@@ -6,7 +6,7 @@
 
       <div class="panel-body">
         <p>Olá, Pequenos Mochileiros! está é a sua plataforma, aqui você poderá jogar e adquirir conhecimento sobre
-        paises desbloqueados com a chave que você recebeu!</p>
+        países desbloqueados com a chave que você recebeu!</p>
 
         <p>
           Acesse sua área com seu usuário e senha para desbloquear os jogos!

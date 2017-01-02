@@ -27,7 +27,7 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="">Pais</label>
+              <label for="">País</label>
               <select class="form-control" name="paisjogo">
                 <option value=""></option>
                 @foreach ( $buscaPais as $pais )
