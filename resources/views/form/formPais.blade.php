@@ -15,7 +15,7 @@
           Dados atualizados com sucesso!
         </div>
       @endif
-      <form class="" action="/addpais/adicionar" method="post">
+      <form class="" action="{{url('/addpais/adicionar')}}" method="post">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">

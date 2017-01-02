@@ -67,6 +67,7 @@ class PaisController extends Controller
   {
     if(!empty($idpais) and is_numeric($idpais)){
       DB::table('pais')->where('idpais', '=', $idpais)->delete();
+      DB::table('jogos')->where('idpais', '=', $idpais)->delete();
       return redirect('addpais/listaPaises?msg=exc');
     }
   }

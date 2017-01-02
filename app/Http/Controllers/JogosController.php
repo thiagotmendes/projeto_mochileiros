@@ -114,13 +114,14 @@ class JogosController extends Controller
 
   public function viewJogos()
   {
-    $queryJogos = DB::table('jogos')
-                  ->select('jogos.nome as nomeJogo','jogos.idjogos as idjogo')
-                  ->get();
     /*$queryJogos = DB::table('jogos')
+                  ->select('jogos.nome as nomeJogo','jogos.idjogos as idjogo')
+                  ->get();*/
+
+    $queryJogos = DB::table('jogos')
                   ->join('pais', 'jogos.idpais', '=', 'pais.idpais')
                   ->select('jogos.nome as nomeJogo', 'pais.nome as nomePais','jogos.idjogos as idjogo')
-                  ->get();*/
+                  ->get();
     //var_dump($queryJogos);
     return view('grid.gridJogos', ['gridJogos' => $queryJogos]);
   }
