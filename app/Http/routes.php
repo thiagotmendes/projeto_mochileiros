@@ -24,7 +24,9 @@ Route::group(['prefix' => 'addUser'], function () {
 Route::get('/addjogo', 'JogosController@index');
 Route::group(['prefix' => 'addjogo'], function(){
   Route::get('listaJogos', 'JogosController@viewJogos');
+  Route::get('listaJogos/{id}', 'JogosController@formEditaJogo');
   Route::post('/adicionar', 'JogosController@createJogos');
+  Route::get('excluir/{id}','JogosController@excluirJogo');
 });
 // GRUPO ROTAS PARA PAIS
 Route::get('addpais', 'PaisController@index');

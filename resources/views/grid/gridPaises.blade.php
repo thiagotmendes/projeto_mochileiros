@@ -34,10 +34,19 @@
             <a href='listaPaises/{{$listaPais->idpais}}' class="btn btn-info" title="Editar"> <i class="fa fa-pencil" aria-hidden="true"></i> </a>
           </td>
           <td align="center">
-            <a href="excluir/{{$listaPais->idpais}}" class="btn btn-danger"> <i class="fa fa-trash" aria-hidden="true"></i> </a>
+            <a href="javascript:func()" onclick="confirmaDel({{$listaPais->idpais}})"
+              class="btn btn-danger"> <i class="fa fa-trash" aria-hidden="true"></i> </a>
           </td>
         </tr>
       @endforeach
     </tbody>
   </table>
 @endsection
+<script type="text/javascript">
+  function confirmaDel(id) {
+    var confirma = confirm("Deseja remover esse Pais?");
+    if (confirma == true) {
+      window.location.href = "{{url('addpais/excluir')}}/"+id;
+    }
+  }
+</script>

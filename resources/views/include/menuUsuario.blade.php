@@ -4,8 +4,8 @@
   </div>
   <div class="panel-body">
     <ul>
-      <li> <a href="/addUser/formuser"> Adicionar Usuário </a> </li>
-      <li> <a href="/addUser/listaUsuarios"> Lista Usuário </a> </li>
+      <li> <a href="{{url('/addUser/formuser')}}"> Adicionar Usuário </a> </li>
+      <li> <a href="{{url('/addUser/listaUsuarios')}}"> Lista Usuário </a> </li>
     </ul>
   </div>
 </div>

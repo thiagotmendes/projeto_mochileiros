@@ -4,10 +4,10 @@
     </div>
     <div class="panel-body">
       <ul>
-        <li> <a href="/addpais"> Adicionar Pais </a> </li>
-        <li> <a href="/addpais/listaPaises"> Lista Pais </a> </li>
-        <li> <a href="/addjogo"> Adicionar Jogo </a> </li>
-        <li> <a href="/addjogo/listaJogos"> Lista jogos </a> </li>
+        <li> <a href="{{url('/addpais')}}"> Adicionar Pais </a> </li>
+        <li> <a href="{{url('/addpais/listaPaises')}}"> Lista Pais </a> </li>
+        <li> <a href="{{url('/addjogo')}}"> Adicionar Jogo </a> </li>
+        <li> <a href="{{url('/addjogo/listaJogos')}}"> Lista jogos </a> </li>
       </ul>
     </div>
   </div>
