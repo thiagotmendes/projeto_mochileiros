@@ -11,7 +11,7 @@
           Usuário adicionado com sucesso!
         </div>
       @endif
-      <form class="" action="/addUser/adicionar" method="post">
+      <form class="" action="{{url('/addUser/adicionar')}}" method="post">
         <div class="row">
           <div class="col-md-5">
             <div class="form-group">
