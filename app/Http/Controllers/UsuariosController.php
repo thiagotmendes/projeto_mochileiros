@@ -30,22 +30,32 @@ class UsuariosController extends Controller
       if ($addUser->_token) {
         DB::table('users')
             ->where('id', $idUser)
-            ->update(['name' => $nome, 'email' => $email, 'password' => $password]);
+            ->update(['name' => $nome, 'email' => $email]);
       }
-      return redirect('addUser/listaUsuarios?msg=okupdate');
+      return redirect('addUser/formuser/'.$idUser.'?msg=okupdate');
     } else {
       if ($addUser->_token) {
-        DB::table('users')->insert(
-          [
-            'name'        => $nome,
-            'email'       => $email,
-            'password'    => $password,
-            'estatus'     => '1',
-            'tipoUsuario' => '1',
-            'created_at'  =>  DB::raw('now()')
-          ]
-        );
-        return redirect('addUser/formuser/?msg=ok');
+        $queryVerificaEmail = DB::table('users')
+                    ->where('email','=',$email)
+                    ->select('email')
+                    ->get();
+
+        if(empty($queryVerificaEmail[0]->email)):
+          DB::table('users')->insert(
+            [
+              'name'        => $nome,
+              'email'       => $email,
+              'password'    => $password,
+              'estatus'     => '1',
+              'tipoUsuario' => '1',
+              'created_at'  =>  DB::raw('now()')
+            ]
+          );
+
+          return redirect('addUser/formuser/?msg=ok');
+        else:
+          return redirect('addUser/formuser/?msg=error_email');
+        endif;
       } else {
         return redirect('addUser/formuser/?msg=error');
       }
@@ -64,6 +74,12 @@ class UsuariosController extends Controller
                 ->where('id','=',$id)
                 ->get();
     return view('form.formUsuario', ['formUpdate' => $queryUsers]);
+  }
+
+  public function excluirUser($idUser)
+  {
+    DB::table('users')->where('id', '=', $idUser)->delete();
+    return redirect('addUser/listaUsuarios?msg=exc');
   }
 
 }

@@ -11,6 +11,14 @@
           Usuário adicionado com sucesso!
         </div>
       @endif
+      @if (isset($_GET['msg']) and $_GET['msg'] == 'okupdate' )
+        <div class="alert alert-success"> Dados de usuário   atualizados com sucesso! </div>
+      @endif
+      @if (isset($_GET['msg']) and $_GET['msg'] == 'error_email' )
+        <div class="alert alert-danger">
+          Erro ao cadastrar email! <strong>Email já existe</strong>
+       </div>
+      @endif
       <form class="" action="{{url('/addUser/adicionar')}}" method="post">
         <div class="row">
           <div class="col-md-5">
@@ -32,9 +40,15 @@
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="telefone">Senha</label>
-              <input type="password" name="password" class="form-control" id="" placeholder=""
-              value="@if(isset($formUpdate[0]) and $formUpdate[0]){{ $formUpdate[0]->password }}@endif">
+              @if (!isset($formUpdate[0]->id))
+                <label for="telefone">Senha</label>
+                <input type="password" name="password" class="form-control" id="" placeholder=""
+                value="@if(isset($formUpdate[0]) and $formUpdate[0]){{$formUpdate[0]->password}}@endif">
+              @else
+                  <div class="alert alert-info">
+                    <small>A senha so pode ser alterada pelo próprio usuário.</small>
+                  </div>
+              @endif
             </div>
           </div>
         </div>
