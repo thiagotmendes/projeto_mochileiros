@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-projeto navbar-static-top">
     <div class="container">
         <div class="navbar-header">
 
@@ -12,14 +12,20 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                Pequenos Mochileiros
+              <img src="{{asset('images/logo.png')}}" alt="">
             </a>
         </div>
 
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+        <div class="collapse navbar-collapse barra-sistema" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/home') }}">Home</a></li>
+              @if (Auth::guest())
+                <li> Área Interna </li>
+              @else
+                <img src="{{asset('images/smile.png')}}" alt="">
+                Olá:
+                {{ Auth::user()->name }}, seja bem vindo!
+              @endif
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -30,13 +36,15 @@
                     <!--<li><a href="{{ url('/register') }}">Register</a></li>-->
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                      <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Sair</a></li>
+
+                        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                        </ul>
+                        </ul>-->
                     </li>
                 @endif
             </ul>

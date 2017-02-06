@@ -1,3 +1,88 @@
+.navbar-projeto{
+  background-color: rgb(26, 186, 202);
+  color: #fff;
+  font-size: 18px;
+}
+
+.barra-sistema{
+  margin-top: 70px;
+}
+
+.navbar-brand{
+  height: auto !important;
+}
+
 .login{
   margin-top: 80px;
+}
+
+.btn-login{
+  background-color: rgb(254, 132, 83);
+  border: rgb(254, 90, 29) solid 1px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.btn-login:hover{
+  background-color:rgb(254, 90, 29);
+}
+
+.esqueci-senha{
+  margin-top: 15px;
+}
+
+.alert-chave{
+  background-color: rgb(248, 152, 65);
+  color: #fff;
+}
+
+.btn{
+    border-radius: 0px !important;
+}
+
+.box-login{
+  background-color: rgb(162, 230, 233);
+  padding: 18px 20px;
+}
+
+.titulo-login{
+  color: rgb(254, 132, 132);
+}
+
+.lista-paises h2{
+  border-bottom: rgb(248, 152, 65) solid 1px;
+  margin-top: 0px;
+}
+
+.lista-paises ul{
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.lista-paises ul li a{
+  display: block;
+  padding: 9px 5px;
+  border: rgb(162, 230, 233) solid 1px;
+  margin-bottom: 10px;
+}
+
+.lista-paises ul li a:hover,
+.lista-paises ul li a:focus,
+.lista-paises ul li.active a{
+  text-decoration: none;
+  background-color: rgb(162, 230, 233) !important;
+  border: rgb(162, 230, 233) solid 1px;
+}
+
+/* menu */
+.navbar-projeto .navbar-nav > li > a{
+  color: #fff;
+  font-size: 18px;
+}
+
+.navbar-projeto .navbar-nav > li > a:hover,
+.navbar-projeto .navbar-nav > li > a:focus,
+.navbar-projeto .navbar-nav > li.active > a{
+  background-color: rgb(53, 108, 149);
 }

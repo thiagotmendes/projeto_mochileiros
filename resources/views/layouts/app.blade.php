@@ -30,49 +30,19 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
-          @if (Auth::guest())
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title"> Pequenos Mochileiros </h3>
-              </div>
-              <div class="panel-body">
-                <ul>
-                  <li> <a href="http://pequenosmochileiros.fourmedia.com.br/o-mochileiro"> O Mochileiro </a> </li>
-                  <li> <a href="http://pequenosmochileiros.fourmedia.com.br/trocas-e-devolucoes"> Trocas e Devoluções </a> </li>
-                  <li> <a href="http://pequenosmochileiros.fourmedia.com.br/politica-de-privacidade"> Política de privacidade </a> </li>
-                  <li> <a href="http://pequenosmochileiros.fourmedia.com.br/blog"> Blog </a> </li>
-                  <li> <a href="http://pequenosmochileiros.fourmedia.com.br/contato"> Contato </a> </li>
-                </ul>
-              </div>
-            </div>
-          @else
-            @if ($teste == 0)
-              @include('include.menuJogos')
-              @include('include.menuUsuario')
-            @else
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title"> Países </h3>
-                </div>
-                <div class="panel-body">
-                  <ul>
-                    @if (isset($listaPais))
-                      @foreach ($listaPais as $pais)
-                        <li>
-                          <a href="/home/{{ $pais->idpais }}/{{ $pais->nome }}"> {{ $pais->nome }} </a>
-                        </li>
-                      @endforeach
-                    @endif
-                  </ul>
-                </div>
-              </div>
-            @endif
-          @endif
-        </div>
-        <div class="col-md-9">
+        @if (Auth::guest())
+          <div class="col-md-12">
+        @else
+          <div class="col-md-3">
+            @include('include.menuLateral')
+          </div>
+
+          <div class="col-md-9">
+        @endif
+
             @yield('content')
         </div>
+
       </div>
     </div>
 

@@ -64,7 +64,7 @@ class HomeController extends Controller
     }
   }
 
-  public function listaJogosPaises($id)
+  public function listaJogosPaises($id, $paisurl)
   {
     $idUser = Auth::user()->id;
     $pais = DB::table('usuarios_pais')
@@ -75,8 +75,8 @@ class HomeController extends Controller
     $jogosPais = DB::table('jogos')
                  ->where('idpais', '=' ,$id)
                  ->get();
-
-    return view('home', ['listaPais' => $pais, 'listaJogosHome' => $jogosPais]);
+                 
+    return view('home', ['listaPais' => $pais, 'listaJogosHome' => $jogosPais, 'id' => $id, 'paisurl' => $paisurl]);
   }
 
 }
